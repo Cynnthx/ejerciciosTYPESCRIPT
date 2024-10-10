@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TypeScript en el Navegador</title>
+</head>
+<body>
+<h1>TypeScript con IntelliJ</h1>
+<p id="saludo"></p>
+<p id="saludoUsuario"></p>
+<p id="listaProductos"></p>
+<p id="precioTotal"></p>
+<p id="calcularDistancia"></p>
+<p id="obtenerUsuariosActivos"></p>
+<p id="procesarEntrada"></p>
+<div id="listaTareas"></div>
+<div id="invertirArray"></div>
+<div id="mostrarResumenPedido"></div>
+<div id="agregarEntrenador"></div>
+<div id="mostrarEntrenadores"></div>
+
+<h2>Agregar Tarea</h2>
+<form onsubmit="agregarTarea({
+    titulo: document.getElementById('nuevoTitulo').value,
+    descripcion: document.getElementById('nuevaDescripcion').value,
+    duracion: parseInt(document.getElementById('nuevaDuracion').value),
+    completada: document.getElementById('nuevaCompletada').checked
+}); return false;">
+  <input type="text" id="nuevoTitulo" placeholder="Título" required>
+  <input type="text" id="nuevaDescripcion" placeholder="Descripción" required>
+  <input type="number" id="nuevaDuracion" placeholder="Duración (horas)" required>
+  <label>
+    <input type="checkbox" id="nuevaCompletada"> Completada
+  </label>
+  <button type="submit">Agregar</button>
+</form>
+<div id="formularioModificar" style="display: none;">
+  <h2>Modificar Tarea</h2>
+  <form onsubmit="guardarModificacion(); return false;">
+    <input type="hidden" id="indice">
+    <input type="text" id="titulo" placeholder="Título" required>
+    <input type="text" id="descripcion" placeholder="Descripción" required>
+    <input type="number" id="duracion" placeholder="Duración (horas)" required>
+    <label>
+      <input type="checkbox" id="completada"> Completada
+    </label>
+    <button type="submit">Guardar</button>
+  </form>
+</div>
+
+<h2>Lista de Animales Vertebrados</h2>
+<div>
+  <button id="btnPequeño">Pequeño</button>
+  <button id="btnMediano">Mediano</button>
+  <button id="btnGrande">Grande</button>
+</div>
+<div>
+  <button id="btnMamifero">Mamífero</button>
+  <button id="btnAve">Ave</button>
+  <button id="btnReptil">Reptil</button>
+  <button id="btnPez">Pez</button>
+  <button id="btnAnfibio">Anfibio</button>
+</div>
+<div id="listaAnimales"></div>
+
+<h2>Sistema de Inventario</h2>
+<form onsubmit="agregarProducto({
+    nombre: document.getElementById('nombreProducto').value,
+    cantidad: parseInt(document.getElementById('cantidadProducto').value),
+    precioUnitario: parseFloat(document.getElementById('precioProducto').value)
+}); return false;">
+  <input type="text" id="nombreProducto" placeholder="Nombre del Producto" required>
+  <input type="number" id="cantidadProducto" placeholder="Cantidad" required>
+  <input type="number" id="precioProducto" placeholder="Precio Unitario" step="0.01" required>
+  <button type="submit">Agregar Producto</button>
+</form>
+<div>
+  <button id="btnCuadrarCaja">Cuadrar Caja</button>
+</div>
+<div id="listaInventario"></div>
+
+<script src="ejercicioTypeScript.js"></script>
+</body>
+</html>
